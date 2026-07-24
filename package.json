@@ -1,0 +1,30 @@
+{
+  "name": "quota-glance",
+  "version": "0.1.0",
+  "description": "A GNOME Shell extension for viewing service quotas at a glance.",
+  "type": "module",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint --deny-warnings src scripts tests",
+    "build": "tsc && node scripts/build.mjs",
+    "dev": "npm run package && node scripts/dev.mjs",
+    "package": "npm run build && node scripts/package.mjs",
+    "host:install": "npm run package && node scripts/install-local.mjs",
+    "host:clean": "node scripts/uninstall-local.mjs",
+    "install:local": "npm run host:install",
+    "test": "npm run build && node --test tests/*.test.mjs && gjs -m tests/http-runtime-smoke.js",
+    "test:providers:live": "npm run build && gjs -m tests/live-http-providers.js",
+    "test:providers:cli:live": "npm run build && gjs -m tests/live-cli-providers.js",
+    "test:gnome": "npm run package && node scripts/test-gnome.mjs",
+    "test:gnome:dtp": "npm run package && node scripts/test-gnome-dtp.mjs"
+  },
+  "devDependencies": {
+    "@girs/gjs": "^4.1.0",
+    "@girs/gnome-shell": "^50.0.4",
+    "@girs/soup-3.0": "^4.1.0",
+    "oxlint": "^1.75.0",
+    "typescript": "^7.0.2"
+  }
+}

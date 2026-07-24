@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema
+    id="org.gnome.shell.extensions.quota-glance"
+    path="/org/gnome/shell/extensions/quota-glance/">
+    <key name="refresh-interval-minutes" type="i">
+      <default>5</default>
+      <range min="1" max="240"/>
+      <summary>Refresh interval in minutes</summary>
+      <description>How often enabled providers should be refreshed.</description>
+    </key>
+    <key name="enabled-providers" type="as">
+      <default>['codex', 'copilot']</default>
+      <summary>Enabled providers</summary>
+      <description>Provider identifiers that participate in refreshes and rendering.</description>
+    </key>
+    <key name="panel-target" type="s">
+      <choices>
+        <choice value="main"/>
+        <choice value="dash-to-panel"/>
+      </choices>
+      <default>'main'</default>
+      <summary>Panel that hosts Quota Glance</summary>
+      <description>Use the GNOME main panel or an available bottom Dash to Panel panel.</description>
+    </key>
+    <key name="dash-to-panel-available" type="b">
+      <default>false</default>
+      <summary>Bottom Dash to Panel availability</summary>
+      <description>Runtime state used to show the panel location preference only when a bottom Dash to Panel exists.</description>
+    </key>
+    <key name="codex-show-primary-window" type="b">
+      <default>false</default>
+      <summary>Show the Codex primary window</summary>
+      <description>Whether the primary Codex rate-limit window is shown in the panel.</description>
+    </key>
+  </schema>
+</schemalist>

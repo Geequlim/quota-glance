@@ -1,0 +1,13 @@
+{
+  "name": "Quota Glance",
+  "description": "View service quotas and balances from a GNOME panel.",
+  "uuid": "quota-glance@geequlim",
+  "url": "https://github.com/geequlim/quota-glance",
+  "settings-schema": "org.gnome.shell.extensions.quota-glance",
+  "shell-version": [
+    "50"
+  ],
+  "session-modes": [
+    "user"
+  ]
+}

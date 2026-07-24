@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "code": 200,
+  "msg": "ok",
+  "data": {
+    "level": "PRO_PLAN",
+    "limits": [
+      {
+        "type": "TOKENS_LIMIT",
+        "unit": 3,
+        "number": 5,
+        "usage": 100000,
+        "currentValue": 35000,
+        "percentage": 35,
+        "nextResetTime": 1784808000000
+      },
+      {
+        "type": "TOKENS_LIMIT",
+        "unit": 6,
+        "number": 1,
+        "usage": 500000,
+        "currentValue": 90000,
+        "percentage": 18,
+        "nextResetTime": 1785326400000
+      }
+    ]
+  }
+}

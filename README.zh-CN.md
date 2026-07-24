@@ -122,8 +122,9 @@ tiny run publish/aur
 `MAJOR.MINOR.PATCH` 版本号。随后它会更新 `package.json`、`package-lock.json` 和
 `metadata.json`，并打印 Git 提交、创建标签和推送标签所需的命令。
 
-`publish/build` 会执行完整的发布前检查，并将可提交到 GNOME Extensions 的 ZIP
-写入 `artifacts/`。
+`publish/build` 会执行完整的发布前检查，将可提交到 GNOME Extensions 的 ZIP
+写入 `artifacts/`，然后在隔离的无头 GNOME Shell 会话中加载这份最终 ZIP，完成最后的
+运行时冒烟测试。
 
 新提交及其 `vMAJOR.MINOR.PATCH` 标签都推送完成后，`publish/github`
 会再次执行完整发布检查、构建扩展 ZIP、生成 `SHA256SUMS`，然后将两个文件发布到

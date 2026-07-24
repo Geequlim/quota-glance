@@ -136,8 +136,9 @@ tiny run publish/aur
 `package-lock.json`, and `metadata.json`, then prints the Git commit, tag, and
 push commands to run.
 
-`publish/build` runs the complete release checks and writes the GNOME
-Extensions submission ZIP to `artifacts/`.
+`publish/build` runs the complete release checks, writes the GNOME Extensions
+submission ZIP to `artifacts/`, then loads that exact ZIP in an isolated
+headless GNOME Shell session for a final runtime smoke test.
 
 After the new commit and its `vMAJOR.MINOR.PATCH` tag have both been pushed,
 `publish/github` runs the complete release checks, builds the extension ZIP,

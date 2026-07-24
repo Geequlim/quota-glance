@@ -13,6 +13,8 @@ publish:
         - node --test tests/*.test.mjs
         - gjs -m tests/http-runtime-smoke.js
         - node scripts/package.mjs
+        - node scripts/test-gnome.mjs
+        - node scripts/dev.mjs
     - name: github
       description: 检查当前版本标签并创建 GitHub Release
       command:

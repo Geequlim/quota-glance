@@ -14,7 +14,13 @@ publish:
         - gjs -m tests/http-runtime-smoke.js
         - node scripts/package.mjs
         - node scripts/test-gnome.mjs
-        - node scripts/dev.mjs
+      actions:
+        - name: run-artifacts
+          description: 在 GNOME Shell 中测试扩展
+          command: node scripts/dev.mjs
+        - name: run-artifacts-en
+          description: 在 GNOME Shell 中测试英文扩展
+          command: LANGUAGE=en_US:en LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 node scripts/dev.mjs
     - name: github
       description: 检查当前版本标签并创建 GitHub Release
       command:

@@ -4,7 +4,7 @@
   "uuid": "quota-glance@geequlim",
   "url": "https://github.com/geequlim/quota-glance",
   "settings-schema": "org.gnome.shell.extensions.quota-glance",
-  "version-name": "1.0.0",
+  "version-name": "1.0.1",
   "shell-version": [
     "50"
   ]

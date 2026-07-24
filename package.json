@@ -1,6 +1,6 @@
 {
   "name": "quota-glance",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A GNOME Shell extension for viewing service quotas at a glance.",
   "type": "module",
   "private": true,

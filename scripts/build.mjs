@@ -19,6 +19,7 @@ await mkdir(outputRoot, {recursive: true});
 await cp(compiledRoot, outputRoot, {recursive: true});
 await cp(path.join(projectRoot, 'metadata.json'), path.join(outputRoot, 'metadata.json'));
 await cp(path.join(projectRoot, 'stylesheet.css'), path.join(outputRoot, 'stylesheet.css'));
+await cp(path.join(projectRoot, 'LICENSE'), path.join(outputRoot, 'LICENSE'));
 await cp(path.join(projectRoot, 'icons'), path.join(outputRoot, 'icons'), {
   recursive: true,
 });

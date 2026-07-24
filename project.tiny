@@ -1,0 +1,23 @@
+publish:
+  actions:
+    - name: version
+      description: 交互式更新项目版本并输出 Git 提交与标签命令
+      command: node scripts/update-version.mjs
+    - name: build
+      description: 执行发布前检查并生成扩展安装包
+      command:
+        - node_modules/.bin/tsc --noEmit
+        - node_modules/.bin/oxlint --deny-warnings src scripts tests
+        - node_modules/.bin/tsc
+        - node scripts/build.mjs
+        - node --test tests/*.test.mjs
+        - gjs -m tests/http-runtime-smoke.js
+        - node scripts/package.mjs
+    - name: github
+      description: 检查当前版本标签并创建 GitHub Release
+      command:
+        - tiny run publish/build
+        - node scripts/release-github.mjs
+    - name: aur
+      description: 从 GitHub Release 下载当前版本并发布到 AUR
+      command: node scripts/release-aur.mjs

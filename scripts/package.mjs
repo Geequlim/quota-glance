@@ -24,6 +24,7 @@ const pack = spawnSync(
     '--force',
     '--out-dir',
     artifactsRoot,
+    '--extra-source=LICENSE',
     ...moduleDirectories.map(directory => `--extra-source=${directory}`),
     sourceRoot,
   ],
@@ -53,6 +54,7 @@ const archiveEntries = new Set(archiveList.stdout.trim().split('\n'));
 const requiredEntries = [
   'extension.js',
   'prefs.js',
+  'LICENSE',
   'icons/codex-symbolic.svg',
   'icons/copilot-symbolic.svg',
   'icons/deepseek-symbolic.svg',

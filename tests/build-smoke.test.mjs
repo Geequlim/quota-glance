@@ -12,6 +12,7 @@ const extensionRoot = path.join(
 
 test('build contains a loadable extension layout', async () => {
   const requiredFiles = [
+    'LICENSE',
     'extension.js',
     'prefs.js',
     'icons/codex-symbolic.svg',
@@ -41,8 +42,13 @@ test('build contains a loadable extension layout', async () => {
   const metadata = JSON.parse(
     await readFile(path.join(extensionRoot, 'metadata.json'), 'utf8'),
   );
+  const packageJson = JSON.parse(
+    await readFile(path.join(process.cwd(), 'package.json'), 'utf8'),
+  );
   assert.equal(metadata.uuid, 'quota-glance@geequlim');
   assert.deepEqual(metadata['shell-version'], ['50']);
+  assert.equal(metadata['version-name'], packageJson.version);
+  assert.equal(metadata['session-modes'], undefined);
   assert.equal(
     metadata['settings-schema'],
     'org.gnome.shell.extensions.quota-glance',

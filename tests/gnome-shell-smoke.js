@@ -70,6 +70,15 @@ export async function run() {
     const menuItems = indicator.menu._getMenuItems();
     if (menuItems.some(item => item instanceof PopupMenu.PopupSwitchMenuItem))
         throw new Error('Provider switches remained in the panel popup');
+    const contentItems = menuItems.filter(item =>
+        item instanceof PopupMenu.PopupBaseMenuItem &&
+        !(item instanceof PopupMenu.PopupSeparatorMenuItem));
+    if (contentItems.some(item =>
+        !item.has_style_class_name('quota-glance-static-item'))) {
+        throw new Error(
+            'A static popup item can inherit the theme insensitive text color',
+        );
+    }
     const separators = menuItems.filter(item =>
         item instanceof PopupMenu.PopupSeparatorMenuItem);
     if (separators.length !== 2) {

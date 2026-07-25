@@ -171,6 +171,7 @@ class PanelIndicator extends PanelMenu.Button {
       reactive: false,
       can_focus: false,
     });
+    headerItem.add_style_class_name('quota-glance-static-item');
 
     const errorCount = enabledProviders.filter(provider =>
       renderState.store.get(provider.id)?.phase === 'error').length;
@@ -219,6 +220,8 @@ class PanelIndicator extends PanelMenu.Button {
         reactive: false,
         can_focus: false,
       });
+      providerItem.add_style_class_name('quota-glance-static-item');
+      providerItem.add_style_class_name('quota-glance-provider-item');
       providerItem.add_child(this._createProviderSection(
         provider.id,
         provider.getPopupViewModel(state),
@@ -231,6 +234,7 @@ class PanelIndicator extends PanelMenu.Button {
         reactive: false,
         can_focus: false,
       });
+      emptyItem.add_style_class_name('quota-glance-static-item');
       const empty = new St.BoxLayout({
         xExpand: true,
         styleClass: 'quota-glance-empty popup-inactive-menu-item',
@@ -252,6 +256,7 @@ class PanelIndicator extends PanelMenu.Button {
       reactive: false,
       can_focus: false,
     });
+    actionsItem.add_style_class_name('quota-glance-static-item');
     const actions = new St.BoxLayout({
       xExpand: true,
       styleClass: 'quota-glance-actions',
@@ -307,11 +312,14 @@ class PanelIndicator extends PanelMenu.Button {
       yAlign: Clutter.ActorAlign.CENTER,
     }));
     if (viewModel.badge) {
-      header.add_child(new St.Label({
+      const badge = new St.Label({
         text: viewModel.badge,
-        styleClass: 'quota-glance-provider-badge',
+        styleClass:
+          'quota-glance-provider-badge popup-inactive-menu-item',
         yAlign: Clutter.ActorAlign.CENTER,
-      }));
+      });
+      badge.add_style_pseudo_class('insensitive');
+      header.add_child(badge);
     }
     if (viewModel.phase === 'error') {
       header.add_child(new St.Icon({

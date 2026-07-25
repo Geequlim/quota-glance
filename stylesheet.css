@@ -19,6 +19,10 @@
   spacing: 8px;
 }
 
+.quota-glance-static-item:insensitive {
+  color: inherit;
+}
+
 .quota-glance-menu-title {
   font-weight: 700;
 }
@@ -30,6 +34,12 @@
 .quota-glance-provider-section {
   min-width: 304px;
   spacing: 6px;
+}
+
+.quota-glance-provider-item {
+  margin: 3px 6px;
+  border-radius: 10px;
+  background-color: rgba(127, 127, 127, 0.08);
 }
 
 .quota-glance-provider-header {
@@ -47,9 +57,9 @@
 .quota-glance-provider-badge {
   padding: 2px 7px;
   border-radius: 99px;
-  background-color: rgba(127, 127, 127, 0.18);
+  background-color: rgba(127, 127, 127, 0.1);
   font-size: 0.78em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .quota-glance-popup-detail {
